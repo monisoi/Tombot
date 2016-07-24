@@ -17,7 +17,7 @@ module.exports = (robot) ->
     robot.brain.data.last_tweet ||= '1'
     doAutomaticSearch(robot)
 
-  doAutomaticSearch = (robot) ->
+  robot.respond /((ポケモン))/i, (msg) ->
     query = "ポケモンGO OR 'Pokemon Go'"
     since_id = robot.brain.data.last_tweet
     count = MAX_TWEETS
@@ -32,8 +32,3 @@ module.exports = (robot) ->
         for tweet in data.statuses.reverse()
           message = "Tweet Alert: http://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id_str}"
           robot.messageRoom MENTION_ROOM, message
-
-    setTimeout (->
-      doAutomaticSearch(robot)
-    ), 1000 * 60 * 2
-

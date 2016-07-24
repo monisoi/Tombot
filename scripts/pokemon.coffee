@@ -1,5 +1,4 @@
 TWIT = require "twit"
-MENTION_ROOM = process.env.HUBOT_TWITTER_MENTION_ROOM || "general"
 MAX_TWEETS = 5
 
 config =
@@ -31,5 +30,4 @@ module.exports = (robot) ->
         robot.brain.data.last_tweet = data.statuses[0].id_str
         for tweet in data.statuses.reverse()
           message = "Tweet Alert: http://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id_str}"
-          console.log MENTION_ROOM
-          robot.messageRoom MENTION_ROOM, message
+          msg.send message

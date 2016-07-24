@@ -1,5 +1,5 @@
 TWIT = require "twit"
-MENTION_ROOM = process.env.HUBOT_TWITTER_MENTION_ROOM || "#general"
+MENTION_ROOM = process.env.HUBOT_TWITTER_MENTION_ROOM || "general"
 MAX_TWEETS = 5
 
 config =

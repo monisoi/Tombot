@@ -17,7 +17,7 @@ module.exports = (robot) ->
     doAutomaticSearch(robot)
 
   robot.respond /((ポケモン))/i, (msg) ->
-    query = "ポケモンGO OR 'Pokemon Go'"
+    query = "#ポケモンGO OR #PokemonGo'"
     since_id = robot.brain.data.last_tweet
     count = MAX_TWEETS
 
